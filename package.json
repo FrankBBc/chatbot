@@ -1,0 +1,19 @@
+{
+  "name": "123123",
+  "version": "1.0.0",
+  "description": "ChatBot app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrankBBc/123123.git"
+  },
+  "author": "frank aldana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrankBBc/123123/issues"
+  },
+  "homepage": "https://github.com/FrankBBc/123123#readme"
+}
