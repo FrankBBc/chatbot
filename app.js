@@ -349,6 +349,8 @@ request.on('response', function(response) {
 					case 'account.movement':
 					sendTextMessage(senderID, 'get account movement');
 					break;
+					case'account.type'
+					sendTextMessage(senderID, 'get acoount type')
 					default:
 					console.log ('unknown action ...');
 					break;
