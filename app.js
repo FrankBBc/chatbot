@@ -344,7 +344,7 @@ request.on('response', function(response) {
 				console.log('parameters: ', parameters);
 				switch(action){
 					case 'account.balance':
-					checkAccount(senderID, "risa")
+					checkAccount(senderID, "chiken")
 					//sendTextMessage(senderID, 'get account balance');
 					break;
 					case 'account.movement':
