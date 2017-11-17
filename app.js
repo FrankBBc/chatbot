@@ -344,10 +344,10 @@ request.on('response', function(response) {
 				console.log('parameters: ', parameters);
 				switch(action){
 					case 'account.balance':
-					sendTextMessage(senderID, 'get account balance');
+					checkAccount(senderID,"balance");
 					break;
 					case 'account.movement':
-					sendTextMessage(senderID, 'get account movement');
+					checkAccount(senderID,"movement");
 					break;
 					default:
 					console.log ('unknown action ...');
@@ -363,6 +363,53 @@ request.on('error', function(error) {
 });
 
 request.end();
+}
+function checkAccount(senderID, messsage){
+	const value = encodeURI(message);
+	  request({
+    uri: 'https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=50&rating=pg&q=',+value;
+
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var parsed = JSON.parse(body);
+	  var i = Math.floor(Math.random()*10);
+	  var meme=parsed.data[i];
+	  if(meme && meme.images && meme.images.fixed_width){
+		  var giphy=meme.images.fixed_width;
+		  var giphy=meme.images.fixed_width;
+		    request({
+    uri: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: { access_token: PAGE_ACCESS_TOKEN },
+    method: 'POST',
+    json: {
+		recipent:{
+			id: senderID
+		},
+		message:{
+			attachment:{
+				type:'image',
+				payload:{
+					url:giphy.url
+				}
+			}
+		}
+  }, function (error, response, body) {
+  
+  });
+	  }
+      var messageId = body.message_id;
+
+      if (messageId) {
+        console.log("Successfully sent message with id %s to recipient %s",
+          messageId, recipientId);
+      } else {
+      console.log("Successfully called Send API for recipient %s",
+        recipientId);
+      }
+    } else {
+      console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
+    }
+  });
 }
 
 function showMenu(senderID) {
