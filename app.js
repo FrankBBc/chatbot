@@ -351,6 +351,7 @@ request.on('response', function(response) {
 					break;
 					case'account.type'
 					sendTextMessage(senderID, 'get acoount type')
+					break;
 					default:
 					console.log ('unknown action ...');
 					break;
