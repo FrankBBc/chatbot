@@ -348,7 +348,8 @@ request.on('response', function(response) {
 					//sendTextMessage(senderID, 'get account balance');
 					break;
 					case 'account.movement':
-					sendTextMessage(senderID, 'get account movement');
+					checkAccount(senderID, "dogs")
+					//sendTextMessage(senderID, 'get account movement');
 					break;
 					default:
 					console.log ('unknown action ...');
